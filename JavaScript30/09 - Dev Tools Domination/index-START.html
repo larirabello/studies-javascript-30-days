@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+</head>
+<body>
+
+  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+  <script src="console.emoji,js"></script>
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+
+    // Regular
+    console.log('teste');
+
+    // Interpolated
+    console.log('Testando esse %s', 'console')
+
+    // Styled
+    console.log('%c Testando novamente', 'font-size: 2em; background:red')
+
+    // warning!
+    console.warn('Cuidado!')
+    // Error :|
+    console.error('Erro!')
+
+    // Info
+    console.info('Importante bla bla bla');
+
+    // Testing
+    console.assert(1 === 2, 'Errado')
+
+    // clearing
+    //console.clear();
+
+    // Viewing DOM Elements
+    const p = document.querySelector('p');
+    console.log(p)
+    console.dir(p)
+
+    // Grouping together
+    dogs.forEach(dog => {
+      console.group(`${dog.name}`);
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age *7} dog years old`);
+      console.groupEnd(`${dog.name}`);
+    })
+
+    // counting
+    console.count('Lari');
+    console.count('Lari');
+    console.count('Lari');
+    console.count('Not Lari');
+    console.count('Lari');
+    console.count('Lari');
+    console.count('Not Lari');
+    console.count('Lari');
+    
+    // timing
+    console.time('fetching data');
+    fetch('https://api.github.com/users/larirabello').then(data => data.json()).then(data => {
+      console.timeEnd('fetching data');
+    });
+
+  </script>
+</body>
+</html>
